@@ -35,6 +35,12 @@
 
     .star.bright {
       box-shadow: 0 0 4px 1px rgba(255,255,255,0.2);
+      animation: twinkle var(--d, 3s) ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: var(--o); transform: scale(1); }
+      50% { opacity: calc(var(--o) * 0.3); transform: scale(0.8); }
     }
 
     header {
@@ -48,6 +54,8 @@
 
     .logo img {
       height: 40px;
+      mix-blend-mode: lighten;
+      filter: invert(1);
     }
 
     .hero {
@@ -174,6 +182,66 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Scroll-triggered animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+
+    .stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth hover transitions */
+    .service-item {
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateX(8px);
+    }
+
+    .about-row {
+      transition: opacity 0.3s ease;
+    }
+
+    .about-row:hover {
+      opacity: 1;
+    }
+
+    .about-row:hover .about-label {
+      color: #888;
+    }
+
+    .about-row:hover .about-value {
+      color: #fff;
+    }
+
+    .about-label, .about-value {
+      transition: color 0.3s ease;
+    }
+
     @media (max-width: 640px) {
       header { padding: 1.25rem; }
       .logo img { height: 32px; }
@@ -205,23 +273,25 @@
   </div>
 
   <section id="service">
-    <div class="section-inner">
+    <div class="section-inner fade-in">
       <h2 class="section-title">Service</h2>
-      <div class="service-item">
-        <div class="service-name">StaaS</div>
-        <div class="service-desc">法人向けマンガ制作、電子マンガ配信、リンク付きグッズ制作サービス</div>
-      </div>
-      <div class="service-item">
-        <div class="service-name">IP Contents Management</div>
-        <div class="service-desc">IPコンテンツ運用代行</div>
+      <div class="stagger">
+        <div class="service-item">
+          <div class="service-name">StaaS</div>
+          <div class="service-desc">法人向けマンガ制作、電子マンガ配信、リンク付きグッズ制作サービス</div>
+        </div>
+        <div class="service-item">
+          <div class="service-name">IP Contents Management</div>
+          <div class="service-desc">IPコンテンツ運用代行</div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <div class="section-inner">
+    <div class="section-inner fade-in">
       <h2 class="section-title">About</h2>
-      <div class="about-table">
+      <div class="about-table stagger">
         <div class="about-row">
           <div class="about-label">会社名</div>
           <div class="about-value">Yota株式会社</div>
@@ -252,21 +322,42 @@
   </footer>
 
   <script>
+    // Stars with twinkle animation
     const c = document.getElementById('s');
     for(let i = 0; i < 120; i++) {
       const s = document.createElement('div');
       const isBright = Math.random() > 0.85;
       s.className = isBright ? 'star bright' : 'star';
       const size = isBright ? Math.random()*2+1.5 : Math.random()*1.5+0.5;
+      const duration = 2 + Math.random() * 4;
       s.style.cssText = `
         width:${size}px;
         height:${size}px;
         left:${Math.random()*100}%;
         top:${Math.random()*100}%;
         --o:${isBright ? Math.random()*0.3+0.4 : Math.random()*0.3+0.1};
+        --d:${duration}s;
+        animation-delay:${Math.random() * duration}s;
       `;
       c.appendChild(s);
     }
+
+    // Scroll-triggered animations using Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Also trigger stagger animations within this element
+          const staggerElements = entry.target.querySelectorAll('.stagger');
+          staggerElements.forEach(el => el.classList.add('visible'));
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
