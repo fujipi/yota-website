@@ -50,6 +50,27 @@
       right: 0;
       padding: 1.5rem 2.5rem;
       z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav a {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      color: #666;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #fff;
     }
 
     .logo img {
@@ -266,6 +287,10 @@
   
   <header>
     <div class="logo"><img src="logo.jpg" alt="Yota"></div>
+    <nav class="nav">
+      <a href="#service">Service</a>
+      <a href="#about">About</a>
+    </nav>
   </header>
 
   <div class="hero">
