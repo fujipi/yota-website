@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>情報セキュリティ基本方針 | Yota Inc.</title>
+  <link rel="icon" type="image/jpeg" href="/logo.jpg">
+  <link rel="apple-touch-icon" href="/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -19,7 +21,11 @@
     header {
       padding: 1.5rem 2.5rem;
     }
-    .logo img { height: 40px; }
+    .logo img {
+      height: 40px;
+      mix-blend-mode: lighten;
+      filter: invert(1);
+    }
     main {
       max-width: 720px;
       margin: 0 auto;

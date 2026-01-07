@@ -1,10 +1,92 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yota Inc.</title>
-  <meta name="description" content="物語であふれる経済をつくる">
+
+  <!-- Primary Meta Tags -->
+  <title>Yota株式会社（ヨタ）| マンガ・IP活用でDX・OMOを推進するクリエイターカンパニー</title>
+  <meta name="description" content="Yota株式会社（よた/ヨタ）は「物語であふれる経済をつくる」をミッションに、マンガ・漫画制作、IPコンテンツ運用、LINE活用などでDX・OMOを支援。代表 藤平賢人（Kento Fujihira）。法人向けStaaS、クリエイター支援を展開。">
+  <meta name="keywords" content="Yota,Yota株式会社,よた,ヨタ,DX,OMO,クリエイター,IP,マンガ,漫画,まんが,LINE,藤平,ふじひら,フジヒラ,藤平賢人,Fujihira,Kento Fujihira,StaaS,IPコンテンツ,渋谷">
+  <meta name="author" content="Yota株式会社">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://yota.co.jp/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yota.co.jp/">
+  <meta property="og:title" content="Yota株式会社（ヨタ）| マンガ・IP活用でDX・デジタル化を推進">
+  <meta property="og:description" content="Yota株式会社は「物語であふれる経済をつくる」をミッションに、マンガ制作、IPコンテンツ運用、LINE活用などでDX・OMOを支援するクリエイターカンパニーです。">
+  <meta property="og:image" content="https://yota.co.jp/logo.jpg">
+  <meta property="og:site_name" content="Yota株式会社">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yota.co.jp/">
+  <meta name="twitter:title" content="Yota株式会社（ヨタ）| マンガ・IP活用でDX・デジタル化を推進">
+  <meta name="twitter:description" content="Yota株式会社は「物語であふれる経済をつくる」をミッションに、マンガ制作、IPコンテンツ運用でDX・OMOを支援するクリエイターカンパニーです。">
+  <meta name="twitter:image" content="https://yota.co.jp/logo.jpg">
+
+  <!-- Additional SEO -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/jpeg" href="/logo.jpg">
+  <link rel="apple-touch-icon" href="/logo.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Yota株式会社",
+    "alternateName": ["Yota", "ヨタ", "よた", "Yota Inc."],
+    "url": "https://yota.co.jp",
+    "logo": "https://yota.co.jp/logo.jpg",
+    "description": "物語であふれる経済をつくる。マンガ・IP活用でDX・OMOを推進するクリエイターカンパニー。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "神宮前六丁目23番4号桑野ビル2階",
+      "addressLocality": "渋谷区",
+      "addressRegion": "東京都",
+      "postalCode": "150-0001",
+      "addressCountry": "JP"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "藤平賢人",
+      "alternateName": ["Kento Fujihira", "ふじひら けんと", "フジヒラ ケント"],
+      "jobTitle": "代表取締役社長"
+    },
+    "foundingDate": "2025",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "x-aaaasrgiz2mmfrwulhd6imcnqq@w-yota.slack.com"
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "StaaS（Story as a Service）",
+          "description": "法人向けマンガ制作、電子マンガ配信、リンク付きグッズ制作サービス。DX・OMO推進をマンガ・漫画コンテンツで支援。"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "IP Contents Management",
+          "description": "IPコンテンツ運用代行。クリエイターのIP活用、LINE連携などをサポート。"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -151,6 +233,7 @@
     .about-table {
       display: grid;
       gap: 1.5rem;
+      margin: 0;
     }
 
     .about-row {
@@ -160,12 +243,21 @@
       font-size: 0.875rem;
     }
 
+    .about-label,
+    .about-value {
+      margin: 0;
+    }
+
     .about-label {
       color: #555;
     }
 
     .about-value {
       color: #ccc;
+    }
+
+    .service-name {
+      margin: 0;
     }
 
     footer {
@@ -286,56 +378,59 @@
   <div class="stars" id="s"></div>
   
   <header>
-    <div class="logo"><img src="logo.jpg" alt="Yota"></div>
-    <nav class="nav">
+    <div class="logo"><img src="logo.jpg" alt="Yota株式会社（ヨタ）- マンガ・IP活用でDX・OMOを推進するクリエイターカンパニー"></div>
+    <nav class="nav" aria-label="メインナビゲーション">
       <a href="#service">Service</a>
       <a href="#about">About</a>
     </nav>
   </header>
 
-  <div class="hero">
-    <h1>物語であふれる<br>経済をつくる</h1>
-  </div>
+  <main>
+    <section class="hero" aria-label="メインビジュアル">
+      <h1>物語であふれる<br>経済をつくる</h1>
+      <p class="sub">Yota株式会社（ヨタ/よた）- マンガ・漫画制作、IPコンテンツ、DX・OMO支援</p>
+    </section>
 
-  <section id="service">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">Service</h2>
-      <div class="stagger">
-        <div class="service-item">
-          <div class="service-name">StaaS</div>
-          <div class="service-desc">法人向けマンガ制作、電子マンガ配信、リンク付きグッズ制作サービス</div>
-        </div>
-        <div class="service-item">
-          <div class="service-name">IP Contents Management</div>
-          <div class="service-desc">IPコンテンツ運用代行</div>
+    <section id="service" aria-labelledby="service-title">
+      <div class="section-inner fade-in">
+        <h2 class="section-title" id="service-title">Service</h2>
+        <div class="stagger">
+          <article class="service-item">
+            <h3 class="service-name">StaaS</h3>
+            <p class="service-desc">法人向けマンガ・漫画制作、電子マンガ配信、リンク付きグッズ制作サービス。DX・OMO推進をクリエイターの力で支援します。</p>
+          </article>
+          <article class="service-item">
+            <h3 class="service-name">IP Contents Management</h3>
+            <p class="service-desc">IPコンテンツ運用代行。クリエイターのIP活用、LINE連携などをトータルサポート。</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about">
-    <div class="section-inner fade-in">
-      <h2 class="section-title">About</h2>
-      <div class="about-table stagger">
-        <div class="about-row">
-          <div class="about-label">会社名</div>
-          <div class="about-value">Yota株式会社</div>
-        </div>
-        <div class="about-row">
-          <div class="about-label">代表取締役社長</div>
-          <div class="about-value">藤平賢人</div>
-        </div>
-        <div class="about-row">
-          <div class="about-label">所在地</div>
-          <div class="about-value">〒150-0001<br>東京都渋谷区神宮前六丁目23番4号桑野ビル2階</div>
-        </div>
-        <div class="about-row">
-          <div class="about-label">事業内容</div>
-          <div class="about-value">インターネットビジネスの企画・開発・運営</div>
-        </div>
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-inner fade-in">
+        <h2 class="section-title" id="about-title">About</h2>
+        <dl class="about-table stagger">
+          <div class="about-row">
+            <dt class="about-label">会社名</dt>
+            <dd class="about-value">Yota株式会社（ヨタ/よた）</dd>
+          </div>
+          <div class="about-row">
+            <dt class="about-label">代表取締役社長</dt>
+            <dd class="about-value">藤平賢人（ふじひら けんと / Kento Fujihira）</dd>
+          </div>
+          <div class="about-row">
+            <dt class="about-label">所在地</dt>
+            <dd class="about-value">〒150-0001<br>東京都渋谷区神宮前六丁目23番4号桑野ビル2階</dd>
+          </div>
+          <div class="about-row">
+            <dt class="about-label">事業内容</dt>
+            <dd class="about-value">マンガ・漫画制作、IPコンテンツ運用、DX・OMO支援、クリエイター支援事業</dd>
+          </div>
+        </dl>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <a href="mailto:x-aaaasrgiz2mmfrwulhd6imcnqq@w-yota.slack.com">Contact</a>
