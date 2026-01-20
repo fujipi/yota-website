@@ -1,0 +1,11 @@
+# Yota株式会社 robots.txt
+# https://yota.co.jp/
+
+User-agent: *
+Allow: /
+
+# ユーティリティページは検索結果に不要
+Disallow: /ogp-generator.html
+
+# サイトマップの場所
+Sitemap: https://yota.co.jp/sitemap.xml
