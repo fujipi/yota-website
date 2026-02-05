@@ -1,0 +1,5 @@
+Contact: mailto:x-aaaasrgiz2mmfrwulhd6imcnqq@w-yota.slack.com
+Expires: 2027-02-05T00:00:00.000Z
+Preferred-Languages: ja, en
+Canonical: https://yota.co.jp/.well-known/security.txt
+Policy: https://yota.co.jp/security.html
